@@ -1,24 +1,24 @@
 <div>
-  <h1 class="font-bold text-4xl">Dashboard#index</h1>
-  <p>Find me in <code>app/views/dashboard/index.html.erb</code></p>
-
   <% if @access_token %>
-    <div style="margin-top: 2rem;">
+    <div class="mt-8">
       <h2 class="font-semibold text-2xl">Access Token:</h2>
-      <div style="position: relative; margin-top: 1rem;">
-        <pre id="access-token" style="background-color: #f3f3f3; padding: 1rem; border-radius: 5px; overflow-x: auto;">
+      <div class="relative w-288 mt-4">
+        <pre id="access-token" class="bg-gray-100 p-4 overflow-x-auto rounded border border-gray-300">
 <%= @access_token %>
         </pre>
-        <button onclick="copyToken()" style="margin-top: 1rem; background-color: #4CAF50; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer;">
+        <button
+          onclick="copyToken()"
+          class="mt-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded cursor-pointer"
+        >
           Copy
         </button>
       </div>
     </div>
   <% end %>
 
-  <div style="margin-top: 2rem;">
+  <div class="mt-8 space-x-4">
     <%= button_to 'Logout', '/auth/logout', method: :get, data: { turbo: false }, class: 'bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded' %>
-    <%= button_to 'Home', '/auth/auth0', method: :post, data: { turbo: false } %>
+    <%= button_to 'Home', root_url, method: :get, data: { turbo: false }, class: 'bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded' %>
   </div>
 </div>
 
