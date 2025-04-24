@@ -10,7 +10,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     authorize_params: {
       scope: "admin openid profile",
       audience: AUTH0_CONFIG["auth0_audience"],
-      redirect_uri: "http://localhost:3000/auth/callback"
+      redirect_uri: AUTH0_CONFIG["auth0_callback_url"]
     }
   )
 end
